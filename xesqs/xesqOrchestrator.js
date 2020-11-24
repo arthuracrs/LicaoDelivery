@@ -3,7 +3,8 @@ const xesqPdfGenerator = require('./xesqPdfGenerator')
 const xesqTXTGenerator = require('./xesqTXTGenerator')
 const xesqSendEmail = require('./xesqSendEmail')
 const xesqGetCurrentDate = require("./xesqGetCurrentDate")
-const emailCredentials = require('../credentials/email.json')
+
+const emailCredentials = require('../credentials/email.js')
 
 async function main() {
     try {
@@ -13,7 +14,7 @@ async function main() {
         
         const sendEmail = await xesqSendEmail.sendEmail(
             emailCredentials.addresser,
-            emailCredentials.senderPassword,
+            emailCredentials.addresserPassword,
             emailCredentials.addressee,
             pdfPath
         )

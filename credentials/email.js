@@ -1,6 +1,6 @@
 const addresser = process.env.addresser
 const addresserPassword = process.env.addresserPassword
-const addresse = process.env.addresse
+const addressee = process.env.addressee
 
 if (!addresser) {
     console.log('addresser not valid!')
@@ -8,14 +8,14 @@ if (!addresser) {
 else if (!addresserPassword) {
     console.log('addresser password not valid!')
 }
-else if (!addresse) {
+else if (!addressee) {
     console.log('addresse not valid!')
 }
 else {
     module.exports = {
         addresser,
         addresserPassword,
-        addresse
+        addressee
     }
 }
 
