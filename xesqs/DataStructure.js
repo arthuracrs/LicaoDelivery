@@ -11,10 +11,9 @@ async function dataGenerator(url) {
         await page.goto(url);
         const data = await page.evaluate(() => (document.querySelector('*').outerHTML));
         await browser.close()
+        
         return data
     }
-
-
 
     async function makeDataStucture(urlOfWeek) {
 
@@ -76,6 +75,7 @@ async function dataGenerator(url) {
         }
         catch (error) {
             console.log(error)
+         
             return error
         }
     }

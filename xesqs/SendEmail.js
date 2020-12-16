@@ -10,8 +10,9 @@ const sendEmail = (fromEmail, fromPassword, toEmail, filePath) => {
 		ssl: true,
 	})
 	
-	const fileNameRegex = /[_0-9a-z]{1,30}.pdf/g
-	const fileName = filePath.match(fileNameRegex)[0].split('_').join(' ')
+	// const pdfFileNameRegex = /[_0-9a-z]{1,30}.pdf/g
+	const txtFileNameRegex = /[_0-9a-z]{1,30}.txt/g
+	const fileName = filePath.match(txtFileNameRegex)[0].split('_').join(' ')
 	
 	const message = {
 		text: '',
@@ -19,11 +20,11 @@ const sendEmail = (fromEmail, fromPassword, toEmail, filePath) => {
 		to: toEmail,
 		subject: 'convert',
 		attachment: [
-			{ path: path.resolve(filePath), type: 'application/pdf', name: fileName },
+			{ path: path.resolve(filePath), type: 'application/octet-stream', name: fileName },
 		],
 	};
 	client.send(message, function (err, message) {
-		console.log(err || 'Email Sent');
+		console.log(err || 'Kindle email was sent');
 	});
 	
 }
