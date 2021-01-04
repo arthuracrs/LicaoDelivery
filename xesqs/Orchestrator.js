@@ -1,5 +1,4 @@
 const DataStructure = require('./DataStructure')
-const PdfGenerator = require('./PdfGenerator')
 const TXTGenerator = require('./TXTGenerator')
 const SendEmail = require('./SendEmail')
 const txtFileGenerator = require("./TxtFileGenerator")
@@ -9,7 +8,6 @@ async function main() {
         
         const data = await DataStructure.dataGenerator('https://mais.cpb.com.br/licao-jovens/')
         const txt = TXTGenerator.generateTXT(data)
-        // const pdfPath = await PdfGenerator.generatePdf(txt, data)
         const txtPath = await txtFileGenerator.generateFileTxt(txt, data)
         const sendEmail = await SendEmail.sendEmail(
             process.env.ADDRESSER,

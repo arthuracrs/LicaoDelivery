@@ -10,9 +10,9 @@ async function main() {
     console.log(req.ip)
     const currentTime = GetCurrentDate.getDate()
     console.log(currentTime)
-    console.log('#############################################')
-
+  
     const response = await Orchestrator.main()
+    console.log('#############################################')
     res.send(response)
   })
 
